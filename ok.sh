@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [ "$1" == "-o" ]; then
-    echo -n '#include <bits/stdc++.h>
+    if ![ -f "$2" ]; then
+        echo -n '#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,8 +20,10 @@ using namespace std;
 int main () {
     std::ios_base::sync_with_stdio(false);
     return 0;
-}' > "$2" && mvim "$2"
-exit 0
+}' > "$2"
+fi
+    mvim "$2"
+    exit 0
 fi
 
 if ! [ -f $1 ]; then
