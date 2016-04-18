@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$1" == "-o" ]; then
-    if ![ -f "$2" ]; then
+    if ! [ -f "$2" ]; then
         echo -n '#include <bits/stdc++.h>
 
 using namespace std;
