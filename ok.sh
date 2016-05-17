@@ -22,7 +22,7 @@ int main () {
     return 0;
 }' > "$2"
 fi
-    mvim "$2"
+    vim "$2"
     exit 0
 fi
 
