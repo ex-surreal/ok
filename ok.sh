@@ -2,7 +2,15 @@
 
 if [ "$1" == "-o" ]; then
     if ! [ -f "$2" ]; then
-        echo -n '#include <bits/stdc++.h>
+        echo -n '#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <set>
+#include <queue>
+#include <stack>
 
 using namespace std;
 
@@ -22,7 +30,7 @@ int main () {
     return 0;
 }' > "$2"
 fi
-    nvim "$2"
+    vim "$2"
     exit 0
 fi
 
