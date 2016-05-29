@@ -11,6 +11,7 @@ if [ "$1" == "-o" ]; then
 #include <set>
 #include <queue>
 #include <stack>
+#include <cstring>
 
 using namespace std;
 
