@@ -12,6 +12,9 @@ if [ "$1" == "-o" ]; then
 #include <queue>
 #include <stack>
 #include <cstring>
+#include <ctime>
+#include <cstdlib>
+#include <cassert>
 
 using namespace std;
 
