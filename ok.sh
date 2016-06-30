@@ -2,8 +2,13 @@
 
 if [ "$1" == "-o" ]; then
     if ! [ -f "$2" ]; then
+        echo -n  > "$2"
+    fi
+    ext="${2##*.}"
+    if [ $ext == "cpp" ]; then
         echo -n '#include <iostream>
 #include <vector>
+#include <numeric>
 #include <string>
 #include <algorithm>
 #include <map>
@@ -32,8 +37,8 @@ using namespace std;
 int main () {
     std::ios_base::sync_with_stdio(false);
     return 0;
-}' > "$2"
-fi
+}' > $2
+    fi
     vim "$2"
     exit 0
 fi
@@ -51,6 +56,8 @@ filebasename="${filename%.*}"
 if [ $extension == "cpp" ]; then
     g++ "$dir/$filename" -o "$dir/$filebasename.o" -std=c++11 -Wall && "$dir/$filebasename.o"
     rm -f "$dir/$filebasename.o"
+elif [ $extension == "py" ]; then
+    python "$dir/$filename"
 else
     echo "No support for .$extension files"
 fi
