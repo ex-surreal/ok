@@ -1,11 +1,13 @@
 #!/bin/bash
 
 if [ "$1" == "-o" ]; then
+    flag=0
     if ! [ -f "$2" ]; then
         echo -n  > "$2"
+        flag=1
     fi
     ext="${2##*.}"
-    if [ $ext == "cpp" ]; then
+    if [ $ext == "cpp" ] && [ $flag -eq 1 ]; then
         echo -n '#include <iostream>
 #include <vector>
 #include <numeric>
