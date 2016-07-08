@@ -9,6 +9,7 @@ if [ "$1" == "-o" ]; then
     ext="${2##*.}"
     if [ $ext == "cpp" ] && [ $flag -eq 1 ]; then
         echo -n '#include <iostream>
+#include <cstdio>
 #include <vector>
 #include <numeric>
 #include <string>
