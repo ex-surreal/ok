@@ -10,6 +10,7 @@ if [ "$1" == "-o" ]; then
     if [ $ext == "cpp" ] && [ $flag -eq 1 ]; then
         echo -n '#include <iostream>
 #include <cstdio>
+#include <bitset>
 #include <vector>
 #include <numeric>
 #include <string>
