@@ -83,7 +83,7 @@ def parse_args():
     )
     parser.add_argument(
         '-e', '--editor',
-        default='nvim',
+        default='vim',
         help='Specify editor to open with'
     )
     return parser.parse_args()
