@@ -57,15 +57,16 @@ def get_template(ext, flag):
             f.close()
     return template
 
-def open_file(name, editor, without_template):
+def open_file(name, editor, without_template, silent):
     if not os.path.exists(name):
         template = get_template(os.path.splitext(name)[-1], without_template)
         with open(name, 'w') as f:
             f.write(template)
         f.close()
-    command = '{} {}'.format(editor, name)
-    command = shlex.split(command)
-    call(command)
+    if not silent:
+        command = '{} {}'.format(editor, name)
+        command = shlex.split(command)
+        call(command)
 
 def parse_args():
     parser = argparse.ArgumentParser(prog='ok', version='1.0')
@@ -82,6 +83,11 @@ def parse_args():
         help='Open file without template'
     )
     parser.add_argument(
+        '-s', '--silent',
+        action='store_true',
+        help='Silently create file. No effect when -o is not set'
+    )
+    parser.add_argument(
         '-e', '--editor',
         default='vim',
         help='Specify editor to open with'
@@ -91,7 +97,7 @@ def parse_args():
 def main():
     args = parse_args()
     if args.open:
-        open_file(args.file, args.editor, args.without_template)
+        open_file(args.file, args.editor, args.without_template, args.silent)
     else:
         run_file(args.file)
 
