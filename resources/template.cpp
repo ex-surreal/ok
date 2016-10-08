@@ -22,11 +22,16 @@ using namespace std;
 #define y second
 #define all(a) (a).begin(), (a).end()
 #define mp make_pair
-#define pb push_back
+#define mt make_tuple
 #define sz(x) int((x).size())
 #define rep(i, n) for (int i = 0; i < int(n); i ++)
 #define repi(i, a, n) for (int i = (a); i < int(n); i ++)
 #define repe(x, v) for (auto x: (v))
+#define vt(x) vector < x >
+#define px(x) pair < x, x >
+#define pxy(x, y) pair < x, y >
+
+typedef long long ll;
 
 int main () {
   std::ios_base::sync_with_stdio(false);
